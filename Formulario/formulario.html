@@ -100,18 +100,7 @@
 							</li>
 						</section>
 					
-						<section>
-						<li>
-							<p class="txt-color-darken" >   <!-- telefono -->
-
-								<h3 id="NotasCliente"> Notas del Cliente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<label class="textarea" name="NotasCliente"> 
-									<textarea class="form-control" name="NotasCliente" rows="3" placeholder="Notas del Cliente"></textarea>
-										
-									</label> 
-								</h3>
-							</p>
-						</li></section>
+				
 						<section>
 							<li>
 								<p class="txt-color-darken" >  
@@ -140,15 +129,28 @@
 						<li>
 							<p class="txt-color-darken" >   <!-- telefono -->
 
-								<h3 >Tipo Servicio &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<label class="input" name="servicio"> 
-										
-										<select id="servicio" name="servicio" >                      
-										</select>
-
-									</label> 
+								<h3> Servicio &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+																										
+											
+												<div id="DivServicio">	
+													<label class="input servicios" name="servicio"> 	
+														<select id="servicio" name="servicio" >                      
+														</select>
+													</label> 	
+															
+												</div>
+												<button id="btnAgregar" class="btn btn-info" type="button" >
+													Agregar Servicio
+												</button>
+												<button id="btnQuitarServicio" class="btn btn-danger" type="button" >
+													Quitar Servicio
+												</button>
+											 
+											</p>
+			
 								</h3>
 							</p>
+							
 						</li></section>
 						<section>
 							<li>
@@ -156,7 +158,7 @@
 
 									<h3 id="anticipo">
 										<label class="input" name="anticipo"> 
-											<input type="text" name="anticipo" placeholder="Anticipo">
+											<input type="text" name="anticipo" placeholder="Pago">
 										</label> 
 									</h3>
 								</p>
@@ -173,6 +175,18 @@
 						<section>
 							
 						</section>
+								<section>
+						<li>
+							<p class="txt-color-darken" >   <!-- telefono -->
+
+								<h3 id="NotasCliente"> Notas del Cliente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<label class="textarea" name="NotasCliente"> 
+									<textarea class="form-control" name="NotasCliente" rows="3" placeholder="Notas del Cliente"></textarea>
+										
+									</label> 
+								</h3>
+							</p>
+						</li></section>
 						<li><section>
 							
 							<a id="limpiar" class="btn btn-default">Limpiar Formulario</a>
@@ -207,5 +221,68 @@
 	
 
 </html>
+<script type="text/javascript">
 
+	var  ListaServicios;
+	var  numeroservicios =1;
+	ListaServicios = [ "Reparacion Iphone", "Revision Iphone", "Cambio de Display"];
+
+   var completarComboServicios = function()
+   {    
+		var listItems= "";           
+		for (var i = 0; i < ListaServicios.length; i++)
+	    {
+	        listItems+= "<option value='" + ListaServicios[i] + "'>" + ListaServicios[i] + "</option>";
+	    }
+
+	    $("#servicio").html(listItems);
+   }
+   completarComboServicios();
+
+   var completarCombosServiciosAgregados = function()
+   {
+	   
+		 var listItems= "";
+		   
+		
+		  	  for (var i = 0; i < ListaServicios.length; i++)
+			   {
+			       listItems+= "<option value='" + ListaServicios[i] + "'>" + ListaServicios[i] + "</option>";
+			   }
+			   $("#servicio"+numeroservicios).html(listItems);
+		  
+	  
+   }
+
+	
+
+	$('#limpiar').click(function(){//Limpiar Formulario
+		
+		 	$(':input').each(function(){
+		 		this.value="";
+		 	});
+	});
+
+	 $(document).ready(function(){
+        $("#btnAgregar").click(function(){
+        	numeroservicios++;
+
+        	$("#DivServicio").append("<label class='input servicios' name='servicio'><select id='servicio"+numeroservicios+"' class='ServiciosSelect'  name='servicio'> </select> </label>");
+        	completarCombosServiciosAgregados();
+           	}); 
+        $("#btnQuitarServicio").click(function(){
+        	if($("#servicio"+numeroservicios).length>0)
+        	{
+        		$("#servicio"+numeroservicios).remove();
+        	numeroservicios--;
+        	}else
+        	{
+        		alert("Tiene que haber minimo un servicio");
+        	}
+        	
+        });
+});
+
+
+</script>
 
