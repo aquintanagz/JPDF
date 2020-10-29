@@ -43,6 +43,7 @@ var jsPDFEditor = (function() {
         $("#auto-refresh").is(":checked") &&
         $("#template").val() != "user-input.js"
       ) {
+      
         if (timeout) clearTimeout(timeout);
         timeout = setTimeout(function() {
           jsPDFEditor.update();

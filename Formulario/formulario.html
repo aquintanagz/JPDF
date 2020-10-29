@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Enlazando el CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+   		 <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
 
 		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
 		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css">
@@ -50,7 +50,7 @@
 		<!-- content1 -->
 
 				
-		<div class="row">
+		<div class="row formulario">
 			<div class="col-xs-12 col-sm-6 col-md-6 ">
 			<div class="well no-padding">
 
@@ -220,7 +220,6 @@
 	
 	
 
-</html>
 <script type="text/javascript">
 
 	var  ListaServicios;
@@ -264,25 +263,26 @@
 	});
 
 	 $(document).ready(function(){
-        $("#btnAgregar").click(function(){
-        	numeroservicios++;
+	        $("#btnAgregar").click(function(){
+	        	numeroservicios++;
 
-        	$("#DivServicio").append("<label class='input servicios' name='servicio'><select id='servicio"+numeroservicios+"' class='ServiciosSelect'  name='servicio'> </select> </label>");
-        	completarCombosServiciosAgregados();
-           	}); 
-        $("#btnQuitarServicio").click(function(){
-        	if($("#servicio"+numeroservicios).length>0)
-        	{
-        		$("#servicio"+numeroservicios).remove();
-        	numeroservicios--;
-        	}else
-        	{
-        		alert("Tiene que haber minimo un servicio");
-        	}
+	        	$("#DivServicio").append("<label class='input servicios' name='servicio'><select id='servicio"+numeroservicios+"' class='ServiciosSelect'  name='servicio'> </select> </label>");
+	        	completarCombosServiciosAgregados();
+	           	}); 
+	        $("#btnQuitarServicio").click(function(){
+	        	if($("#servicio"+numeroservicios).length>0)
+	        	{
+	        		$("#servicio"+numeroservicios).remove();
+	        	numeroservicios--;
+	        	}else
+	        	{
+	        		alert("Tiene que haber minimo un servicio");
+	        	}
         	
-        });
-});
+		        });
+		});
 
 
 </script>
+</html>
 
